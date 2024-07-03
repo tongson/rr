@@ -1,4 +1,5 @@
 HOSTS
 LOG
+VARS
 .ssh/config
 ssh_config
