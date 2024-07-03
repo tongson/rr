@@ -1,0 +1,25 @@
+# For Debian Bookworm
+
+### Check for suspicious log entries
+
+```
+rru remotehost sshd:check-log
+```
+
+### Upgrade OpenSSH
+
+```
+rru remotehost sshd:upgrade
+```
+
+### Check the installed OpenSSH sshd for the fixed version.
+
+```
+rr remotehost sshd:check-hash
+```
+
+#### TIP for multiple hosts
+
+```
+for x in remotehost1 remotehost2; do rru remotehost sshd:upgrade; done
+```

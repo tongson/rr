@@ -1,0 +1,25 @@
+set -o errexit
+set -o pipefail
+set -o nounset
+shopt -s inherit_errexit
+
+# ssh -V string comparison
+v=$(ssh -V 2>&1 | sha256sum | cut -f1 -d' ')
+
+code=$(grep VERSION_CODENAME /etc/os-release  | cut -f2 -d=)
+if [ "$(uname -m)" = "aarch64" ]
+then
+declare expected="HASH_${code}_aarch64"
+else
+declare expected="HASH_${code}"
+fi
+declare x="VERSION_$code"
+printf "${!expected}" | sha256sum -c || {
+  >&2 printf "Unexpected OpenSSH sshd hash!\\n"
+  [ "$v" = "${!x}" ] && {
+    >&2 printf "BUT correct version string!\\n"
+  }
+  exit 1
+}
+printf "Expected OpenSSH sshd hash.\\n"
+exit 0

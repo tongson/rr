@@ -1,0 +1,7 @@
+readonly HASH_bookworm="838332fe9777b307794760e1c4800b16ac17a93a2fe3f2580ceca8ca6ca2caa5  /usr/sbin/sshd"
+readonly VERSION_bookworm="80e27829ffeb1cd56693f351a26d4bc28e60812c6e639652183d0c81c66b5cca"
+readonly HASH_bullseye="4f230181ff4356b4972030fe29508eec0ac532c1bf0acd8284ebcfef8cf284a8  /usr/sbin/sshd"
+readonly VERSION_bullseye="e76473dfe94b75297bfd46a203b314fa210684ac671a8e0b0ae166733732c910"
+
+readonly HASH_bookworm_aarch64="c30864ab8042b34b75a4f1b4ed4e31e96e0367053ee05142bafdbec23637d18b  /usr/sbin/sshd"
+readonly HASH_bullseye_aarch64="4f230181ff4356b4972030fe29508eec0ac532c1bf0acd8284ebcfef8cf284a8  /usr/sbin/sshd"

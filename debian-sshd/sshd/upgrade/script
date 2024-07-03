@@ -1,0 +1,9 @@
+set -o errexit
+
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get -y upgrade openssh-server
+
+systemctl restart ssh
+echo
+printf "++++ STATUS ++++\\n"
+systemctl status ssh | grep -F -e 'Active:' -e 'Process:'

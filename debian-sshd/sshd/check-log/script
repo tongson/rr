@@ -1,0 +1,25 @@
+printf "[+] Checking for invalid payload...\\n"
+LC_ALL=C journalctl -o short-iso -u ssh | grep -F \
+-e 'unexpected internal error' \
+-e 'incomplete message' \
+-e 'string is too large' \
+-e 'insufficient buffer space' \
+-e 'unexpected bytes remain after decoding' \
+-e 'invalid format' || {
+printf "NO invalid payload found.\\n"
+}
+echo
+printf "[+] Checking for timeouts...\\n"
+LC_ALL=C journalctl -o short-iso -u ssh -g 'Timeout before' || {
+printf "NO timeouts found.\\n"
+}
+echo
+printf "[+] Checking for killed sessions...\\n"
+LC_ALL=C journalctl -o short-iso -u ssh -g 'killed by' || {
+printf "NO killed sessions.\\n"
+}
+echo
+printf "[+] Checking for abnormal terminations...\\n"
+LC_ALL=C journalctl -o short-iso -u ssh -g 'terminated abnormally' || {
+printf "NO abnormal terminations.\\n"
+}

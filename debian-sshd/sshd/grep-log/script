@@ -1,0 +1,4 @@
+set -o errexit
+set -o nounset
+
+LC_ALL=C journalctl -o short-iso -u ssh -g "$1"
