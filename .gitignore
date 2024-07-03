@@ -1,0 +1,4 @@
+HOSTS
+LOG
+.ssh/config
+ssh_config
