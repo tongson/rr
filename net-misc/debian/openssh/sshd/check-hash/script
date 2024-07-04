@@ -1,6 +1,4 @@
-set -o errexit
 set -o pipefail
-set -o nounset
 shopt -s inherit_errexit
 
 # ssh -V string comparison
