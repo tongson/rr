@@ -1,0 +1,1 @@
+systemctl status ssh | grep -F -e 'Active:' -e 'Process:'
