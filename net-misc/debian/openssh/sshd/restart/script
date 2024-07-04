@@ -1,0 +1,4 @@
+systemctl restart ssh
+echo
+printf "++++ STATUS ++++\\n"
+systemctl status ssh | grep -F -e 'Active:' -e 'Process:'
